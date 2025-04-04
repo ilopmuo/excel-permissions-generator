@@ -1,0 +1,30 @@
+import base64
+from PIL import Image
+import io
+
+# Icono en base64 (un icono simple de una hoja de Excel)
+icon = '''
+iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA
+7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMFSURBVFiF7ZZd
+aBRXFMd/Z2Z3s9mPJBtjk5iYYNJYG/NBsR+pVWyxUItQqA/1wQcFoQ/2TasgFPrU0tKXvhTah1JoQaFQ
+KH0RoVCkULRQW2vAkk+zMTHJZnez2c3uzOw9fdhk3V13NxtjfSgemIe595z/+Z0z98zcEVpr/s+w/msB
+zwRgz+QnqAXlb0kQEUQEpRRaa1pbWzly5AjhcBiAeDxOc3MzR44cIRQKobVGKYVSCqUUWmvi8TiHDx8m
+HA4jIhiGQSwWo7m5mXA4jNYaz/NoaWkhEokQCoVQSmGaJrFYjEgkQigUwnVdWltbicViNDU1IcDwwBBj
+YxMg0LG7g927dz8dQEQYGxvj5MmTTE5OMjQ0xODgIIODgwwPD5NIJOjr6+Ps2bPkcjkymQzpdJp0Ok06
+nSadTpPJZMhms/T19XHu3DkKhQKZTIZUKkUqlSKVSpHNZslms1y4cIHz58+Tz+fJ5/Ok02lSqRTJZJJs
+NsvFixfp6OhARBAEEFzX5cSJE5w6dYpcLgfA6uoqKysrLC8vk0wmWVxcZGFhgfn5eRYWFlhaWmJxcZGF
+hQXm5+dZWFhgaWmJxcVFFhYWmJubY25ujrm5OWZnZ5mdnWVmZoaZmRlmZmaYnp5mamqKqakpJicnmZyc
+ZGJigomJCcbHx3Fdl6amJrTWiAhKKUZHRxkZGSGTyVAsFhERHMfB932UUhiGgYigta56RnzfR0SwLAvT
+NBERTI0QQBNAoQFBEBEsy0IphWEYiAi+7+M4DkopLMvCNE0Mw0BEcF0XpRS2bWMYBiKC53kVEcYTAhQK
+QQiiQWtEVLUCpVSQA9M0q1ZgWRYiUjNHPUbAExQQQAQMFKhAhNYaz/MqFViWVQHwfR/XdSsVmKaJYRgV
+AiogUKAFRCMCaNA+KKgAeJ5HsVis5EBrXQHwPA/HcbBtG9u2K0nVWlcARAStNUprUAoRjYiPQoEGX/to
+rdFao5TCcZxKBYZhYNt2BaDyOzzPw/M8bNvGtu0KwB/JqvwTiWAYRiUHhmFg2zaWZWFZVkXE74lvaGj4
+U/H/Ap4J4DdwR3u7OeVG/QAAAABJRU5ErkJggg==
+'''
+
+# Convertir el icono de base64 a imagen
+icon_data = base64.b64decode(icon)
+icon_image = Image.open(io.BytesIO(icon_data))
+
+# Guardar el icono
+icon_image.save('app_icon.ico') 
